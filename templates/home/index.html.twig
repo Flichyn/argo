@@ -16,19 +16,26 @@
 
         <!-- New member form -->
         <h2>Ajouter un(e) Argonaute</h2>
-        <form class="new-member-form">
-            <label for="name">Nom de l'Argonaute</label>
-            <input id="name" name="name" type="text" placeholder="Charalampos" />
-            <button type="submit">Envoyer</button>
-        </form>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Envoyer</button>
+        {{ form_end(form) }}
+{#        <form class="new-member-form">#}
+{#            <label for="name">Nom de l'Argonaute</label>#}
+{#            <input id="name" name="name" type="text" placeholder="Charalampos" />#}
+{#            <button type="submit">Envoyer</button>#}
+{#        </form>#}
 
         <!-- Member list -->
         <h2>Membres de l'équipage</h2>
-        <section class="member-list">
-            <div class="member-item">Eleftheria</div>
-            <div class="member-item">Gennadios</div>
-            <div class="member-item">Lysimachos</div>
-        </section>
+        {% for member in members %}
+            <div class="member-item">{{ member.name }}</div>
+        {% endfor %}
+{#        <section class="member-list">#}
+{#            <div class="member-item">Eleftheria</div>#}
+{#            <div class="member-item">Gennadios</div>#}
+{#            <div class="member-item">Lysimachos</div>#}
+{#        </section>#}
     </main>
 
     <footer>

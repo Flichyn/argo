@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'variables.scss';
 
 body {
     margin: 0;
@@ -53,3 +54,26 @@ footer {
     background: #f76c6c;
     padding: 0.25em 0;
 }
+
+/** Flash messages */
+.alert {
+    margin: $spacing $spacing3;
+}
+
+.alert:hover {
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.alert-success:hover {
+    background-color: #e1faef;
+}
+
+.alert-danger:hover {
+    background-color: #ffdddf;
+}
+
+.alert-info:hover {
+    background-color: #dcf5fc;
+}
+/** Flash messages ends */
