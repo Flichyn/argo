@@ -56,24 +56,56 @@ footer {
 }
 
 /** Flash messages */
+
+.alert {
+    position: relative;
+    padding: $spacing2;
+    margin-bottom: $spacing;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
 .alert {
     margin: $spacing $spacing3;
+    text-align: center;
 }
 
-.alert:hover {
-    cursor: pointer;
-    transition-duration: 0.2s;
+.alert-success {
+    background-color: #d1e7dd;
+    border: 1px solid #a9e0c8;
+    color: #0f5132;
 }
 
-.alert-success:hover {
-    background-color: #e1faef;
+
+.alert-danger {
+    background-color: #eab6bb;
+    border: 1px solid #dc9cac;
+    color: #a92633;
 }
 
-.alert-danger:hover {
-    background-color: #ffdddf;
+.alert-info {
+    background-color: #b6e4ea;
+    border: 1px solid #9cd5dc;
+    color: #366b75;
 }
 
-.alert-info:hover {
-    background-color: #dcf5fc;
-}
 /** Flash messages ends */
+
+/** Form */
+
+.argonaut-form {
+    text-align: center;
+    margin-bottom: $spacing4 * 2;
+}
+
+/** Form ends */
+
+/** Argonaut list */
+
+.member-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+/** Argonaut list ends */
