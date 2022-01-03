@@ -1,14 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import 'variables.scss';
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 main {
     max-width: 960px;
     margin: 0 auto;
+    flex: 1 0 auto;
 }
 
 header {
@@ -25,48 +37,54 @@ header h1 {
     font-size: 2.5em;
 }
 
-footer {
-    background: #f76c6c;
+header > h1 > a {
+    text-decoration: none;
+    outline: none;
+    color: black;
 }
 
 h1, h2 {
     text-align: center;
+    margin: $spacing4 0;
+}
+
+.help {
+    font-size: small;
+    text-align: center;
+    margin: $spacing2;
 }
 
 label {
     display: block;
-    margin-bottom: 0.5em;
+    margin-bottom: $spacing;
 }
 
-.new-member-form {
-    margin: 2em 0 4em 0;
-    text-align: center;
+hr {
+    border: 1px solid #ED6C6D;
 }
 
-.member-item {
-    padding: 0.25em 0;
+.name-field {
+    border-radius: $spacing / 2;
+    border: 1px solid black;
+    height: $spacing3;
 }
 
-footer {
-    margin-top: 2em;
-    text-align: center;
+.form-button {
+    height: $spacing3;
+    background-color: #ED6C6D;
     color: #fff;
-    background: #f76c6c;
-    padding: 0.25em 0;
+    border-radius: $spacing / 2;
+    border: none;
+    cursor: pointer;
 }
 
 /** Flash messages */
 
 .alert {
-    position: relative;
     padding: $spacing2;
-    margin-bottom: $spacing;
-    border: 1px solid;
-    border-radius: 4px;
-}
-
-.alert {
     margin: $spacing $spacing3;
+    border: 1px solid;
+    border-radius: $spacing / 2;
     text-align: center;
 }
 
@@ -95,12 +113,16 @@ footer {
 
 .argonaut-form {
     text-align: center;
-    margin-bottom: $spacing4 * 2;
+    margin-bottom: $spacing4;
 }
 
 /** Form ends */
 
 /** Argonaut list */
+
+.member-count {
+    color: #ED6C6D;
+}
 
 .member-list {
     display: grid;
@@ -108,4 +130,50 @@ footer {
     text-align: center;
 }
 
+.argonaut-button {
+    border: 1px solid #ED6C6D;
+    border-radius: $spacing3;
+    background: inherit;
+    font-size: 12pt;
+    font-family: inherit;
+    cursor: pointer;
+    padding: $spacing2 0;
+    margin: $spacing $spacing2;
+    width: $spacing6 * 4;
+    height: $spacing4 * 2;
+
+    &:hover {
+        background-color: #ED6C6D;
+        color: #FFF;
+    }
+
+    &:active {
+        background-color: #c73435;
+        color: #FFF;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .member-list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 /** Argonaut list ends */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f76c6c;
+    height: 50px;
+    margin-top: 2em;
+    text-align: center;
+    color: #fff;
+    padding: 0.25em 0;
+}
+
+.svg-container {
+    margin-left: 250px;
+}

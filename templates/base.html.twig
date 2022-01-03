@@ -1,28 +1,60 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="{{ asset('images/favicon.png') }}">
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
 
-    <body>
-    {% for category, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ category }} text-center mb-1">
-                {{ message }}
-            </div>
-        {% endfor %}
+<body>
+
+<!-- Header section -->
+<header>
+    <h1>
+        <a href="{{ path('home') }}">
+            <img src="https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png"
+                 alt="Wild Code School logo"/>
+            Les Argonautes
+        </a>
+    </h1>
+</header>
+
+{% for category, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ category }} text-center mb-1">
+            {{ message }}
+        </div>
     {% endfor %}
-    
-        {% block body %}{% endblock %}
-    </body>
+{% endfor %}
+
+<!-- Main section -->
+<main>
+    {% block body %}{% endblock %}
+</main>
+<footer>
+    {% block footer %}
+        <p>Réalisé par Jason et <a href="">Nicolas Flichy</a> en Anthestérion de l'an 515 avant JC</p>
+
+        <div class="svg-container">
+            <a target="_blank" href="https://www.linkedin.com/in/nicolasflichy/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#fff">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239
+            5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764
+            1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4
+            0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+        </div>
+    {% endblock %}
+</footer>
+</body>
 </html>

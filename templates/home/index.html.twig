@@ -1,40 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Listes des Argonautes{% endblock %}
 
 {% block body %}
-    <!-- Header section -->
-    <header>
-        <h1>
-            <img src="https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png"
-                 alt="Wild Code School logo"/>
-            Les Argonautes
-        </h1>
-    </header>
+    <!-- New member form -->
+    <h2>Ajouter un(e) Argonaute</h2>
+    <div class="argonaut-form">
+        {{ form_start(form) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, { 'attr' : { 'class' : 'name-field' }}) }}
+        <button class="form-button" type="submit">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
 
-    <!-- Main section -->
-    <main>
+    <hr>
 
-        <!-- New member form -->
-        <h2>Ajouter un(e) Argonaute</h2>
-        <div class="argonaut-form">
-            {{ form_start(form) }}
-            {{ form_label(form.name) }}
-            {{ form_widget(form.name) }}
-            <button type="submit">Envoyer</button>
-            {{ form_end(form) }}
-        </div>
-
-        <!-- Member list -->
-        <h2>Membres de l'équipage</h2>
-            <div class="member-list">
-            {% for member in members %}
-                <div class="member-item">{{ member.name }}</div>
-            {% endfor %}
-            </div>
-    </main>
-
-    <footer>
-        <p>Réalisé par Jason en Anthestérion de l'an 515 avant JC</p>
-    </footer>
+    <!-- Member list -->
+    <h2>Membres de l'équipage <span class="member-count">{{ members|length }}/50</span></h2>
+    <p class="help">Cliquez sur un membre pour le supprimer !</p>
+    <div class="member-list">
+        {% for member in members %}
+            <div class="member-item">{{ include('home/_delete.html.twig') }}</div>
+        {% endfor %}
+    </div>
 {% endblock %}
